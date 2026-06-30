@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EKS Terraform Jenkins Project
 
 Production-style DevOps project to create an Amazon EKS cluster using Terraform modules, S3 remote backend with DynamoDB locking, and Jenkins pipeline stages for `fmt`, `init`, `validate`, `plan`, `apply`, `destroy`, and Kubernetes deployment.
@@ -75,3 +76,7 @@ Required Jenkins AWS credentials:
 
 - `aws-access-key-id`
 - `aws-secret-access-key`
+=======
+# hospital-devops-project-
+terraform usecase
+>>>>>>> 7cb90dfa7782a13362b108f91afdd76964c16d09
