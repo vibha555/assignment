@@ -54,13 +54,3 @@ module "alb" {
   public_subnet_ids = module.vpc.public_subnet_ids
   tags              = local.tags
 }
-
-module "jenkins" {
-  source        = "../../modules/jenkins"
-  enabled       = var.enable_jenkins
-  name          = "${local.name}-jenkins"
-  vpc_id        = module.vpc.vpc_id
-  subnet_id     = module.vpc.public_subnet_ids[0]
-  instance_type = "t3.micro"
-  tags          = local.tags
-}
