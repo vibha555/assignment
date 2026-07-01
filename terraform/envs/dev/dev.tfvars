@@ -9,4 +9,4 @@ node_instance_types  = ["t3.micro"]
 desired_size         = 1
 min_size             = 1
 max_size             = 1
-enable_jenkins       = true
+
