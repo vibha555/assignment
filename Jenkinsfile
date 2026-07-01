@@ -100,28 +100,6 @@ pipeline {
             }
         }
 
-        stage('Deploy App to EKS') {
-            when {
-                expression { params.ACTION == 'deploy-app' }
-            }
-            steps {
-                dir("${env.TF_DIR}") {
-                    script {
-                        env.CLUSTER_NAME = sh(
-                            script: 'terraform output -raw cluster_name',
-                            returnStdout: true
-                        ).trim()
-                    }
-                }
-
-                sh 'aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name ${CLUSTER_NAME}'
-                sh 'kubectl apply -f kubernetes/'
-                sh 'kubectl get pods -n hospital'
-                sh 'kubectl get svc -n hospital'
-            }
-        }
-    }
-
     post {
         always {
             archiveArtifacts artifacts: "${env.TF_DIR}/tfplan", allowEmptyArchive: true
